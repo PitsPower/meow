@@ -1,0 +1,16 @@
+{
+  "name": "meow",
+  "version": "1.0.0",
+  "description": "The Unofficial Neocities Client",
+  "main": "index.js",
+  "author": "project2 (http://project2.neocities.org/)",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2",
+    "favicon": "0.0.2",
+    "mkdirp": "0.5.1",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "request": "2.81.0"
+  }
+}

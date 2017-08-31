@@ -1,0 +1,109 @@
+.filetree {
+	background: darken($main-grey, 5%) !important;
+	
+	div {
+		color: #fff;
+	}
+	
+	.allfiles {
+		overflow-y: scroll;
+		height: 100%;
+	}
+	
+	.folder, .file {
+		padding: 3px 5px;
+		border-left: 3px solid transparent;
+		
+		&:hover {
+			background: lighten($main-grey, 10%);
+			border-left-color: #fff;
+		}
+	}
+	.files {
+		padding-left: 20px;
+	}
+	
+	.icon {
+		margin-right: 5px;
+		height: 15px;
+	}
+	.loading {
+		float: right;
+		height: 18px;
+		animation: loading 1s linear infinite;
+	}
+	
+	.addfiles {
+		position: absolute;
+		bottom: 0;
+		right: 12px;
+
+		img {
+			margin: 5px 7px;
+			height: 20px;
+			display: inline-block;
+		}
+	}
+}
+
+.editor {
+	overflow: hidden;
+	height: 100%;
+	
+	.buttons {
+		z-index: 1;
+		padding-left: 45px;
+		position: absolute;
+		top: 50%;
+		right: -55px;
+		transform: translateY(-50%);
+		transition: right .7s;
+		
+		button {
+			margin: 5px;
+			width: 40px;
+			height: 40px;
+			display: block;
+			
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+		
+		.arrow {
+			height: 40px;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+		
+		&:hover {
+			right: 20px;
+		}
+	}
+	#ace {
+		background: darken($main-grey, 5%) !important;
+		font-size: 18px;
+		height: 100%;
+
+		* {
+			cursor: text !important;
+			font-family: monospace !important;
+		}
+		
+		.ace_gutter {
+			background: darken($main-grey, 10%) !important;
+		}
+	}
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

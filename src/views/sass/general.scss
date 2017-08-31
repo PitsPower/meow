@@ -1,0 +1,64 @@
+* {
+	font-family: $main-font;
+	padding: 0;
+	margin: 0;
+	user-select: none;
+	cursor: default;
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+	background: darken($main-color, 10%);
+}
+::-webkit-scrollbar-thumb {
+	background: lighten($main-color, 10%);
+}
+
+html, body {
+	height: 100%;
+}
+body {
+	color: $main-grey;
+	background: $main-color;
+	overflow: hidden;
+	box-sizing: border-box;
+	border: 8px solid $main-grey;
+}
+h1 {
+	font-family: $header-font;
+}
+img {
+	pointer-events: none;
+}
+button {
+	color: $main-grey;
+	background: #fff;
+	padding: 3px 5px;
+	border: none;
+}
+
+.form {
+	label {
+		margin: 10px 0;
+		display: block;
+	}
+	span {
+		display: block;
+	}
+	input {
+		color: white;
+		background: $main-grey;
+		cursor: text;
+		box-sizing: border-box;
+		padding: 3px 5px;
+		border: none;
+		width: 100%;
+	}
+}

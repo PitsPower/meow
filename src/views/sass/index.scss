@@ -1,0 +1,91 @@
+$main-color: #839edb;
+$main-grey: #2f3036;
+
+$main-font: "Open Sans";
+$header-font: "Open Sans";
+
+@import "../font/stylesheet.css";
+
+@import "general.scss";
+@import "login.scss";
+@import "comments.scss";
+@import "editor.scss";
+@import "cat.scss";
+
+.dragbar {
+	color: #fff;
+	background: $main-grey;
+	font-family: $header-font;
+	-webkit-app-region: drag;
+//	border: 8px solid $main-grey;
+//	border-bottom: none;
+	height: 32px;
+	
+	.buttons {
+		pointer-events: auto;
+		float: right;
+		
+		img {
+			-webkit-app-region: no-drag;
+			margin: 4px 0;
+			margin-left: 10px;
+			height: 15px;
+		}
+	}
+}
+#app, #app > div {
+	height: 100%;
+}
+
+.ui {
+	display: flex;
+	flex-grow: 1;
+	height: calc(100% - 32px - 52px);
+	animation: fadeIn .3s;
+}
+
+.column {
+	display: inline-block;
+	position: relative;
+	
+	&.content {
+		overflow-y: auto;
+		width: 80%;
+	}
+}
+.sidebar {
+	background: lighten($main-color, 10%);
+	width: 20%;
+	min-width: 300px;
+	flex-grow: 1;
+}
+
+.tabs {
+	border-bottom: 10px solid $main-color;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	
+	div {
+		color: #fff;
+		background: darken($main-color, 10%);
+		font-family: $header-font;
+		text-align: center;
+		padding: 10px;
+		flex-grow: 1;
+		flex-basis: 0;
+		display: inline-block;
+	}
+	.selected {
+		background: $main-color;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

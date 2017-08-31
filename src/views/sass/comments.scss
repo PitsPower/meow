@@ -1,0 +1,103 @@
+.profile {
+	padding: 20px;
+	box-sizing: border-box;
+	
+	h1 {
+		margin: 0;
+		
+		.favicon {
+			vertical-align: bottom;
+			margin-right: 10px;
+			width: 40px;
+			height: 40px;
+		}
+	}
+	.screenshot {
+		border: 10px solid $main-grey;
+		box-sizing: border-box;
+		margin-top: 20px;
+		width: 100%;
+		transition: opacity .3s;
+	}
+}
+
+.post-box {
+	background: darken($main-color, 10%);
+	padding: 10px;
+	
+	* {
+		font-size: 20px;
+		padding: 3px 5px;
+	}
+	button {
+		float: right;
+		height: 100%;
+		transform: translateY(-100%);
+	}
+}
+
+.post {
+	padding: 20px 30px;
+	border-bottom: 3px solid $main-grey;
+	line-height: 20px;
+	animation: fadeIn .3s;
+	
+	&:last-child {
+		border-bottom: none;
+	}
+	
+	&.update .content {
+		display: flex;
+	}
+	
+	.separator {
+		margin-left: 5px;
+		margin-right: 10px;
+	}
+	.content {
+		margin: 15px 0;
+	}
+	.file {
+		padding: 10px;
+		
+		img {
+			width: 100%;
+			display: block;
+			animation: fadeIn .3s;
+		}
+		div {
+			text-align: center;
+		}
+	}
+	
+	.actions button {
+		margin-right: 5px;
+	}
+	.reply {
+		margin-top: 10px;
+		
+		button {
+			margin-right: 0;
+		}
+	}
+	
+	.replies {
+		font-size: 15px;
+		margin-top: 10px;
+		
+		.comment {
+			padding: 10px 50px;
+			border: none;
+		}
+		.content {
+			margin: 10px 0;
+		}
+	}
+	
+	.user img {
+		vertical-align: top;
+		margin-right: 5px;
+		height: 20px;
+		animation: fadeIn .3s;
+	}
+}

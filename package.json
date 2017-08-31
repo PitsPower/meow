@@ -1,0 +1,41 @@
+{
+  "name": "meow",
+  "version": "1.0.0",
+  "description": "The Unofficial Neocities Client",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "gulp start",
+    "build": "gulp build",
+    "package": "gulp package",
+    "installer": "gulp installer",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "project2 (http://project2.neocities.org/)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babelify": "7.3.0",
+    "browserify": "14.4.0",
+    "electron": "1.6.11",
+    "electron-debug": "1.2.0",
+    "electron-installer-windows": "0.2.0",
+    "electron-packager": "8.7.2",
+    "electron-prebuilt": "1.4.13",
+    "gulp": "3.9.1",
+    "gulp-babel": "6.1.2",
+    "gulp-clean-css": "3.5.0",
+    "gulp-install": "1.1.0",
+    "gulp-sass": "3.1.0",
+    "pump": "1.0.2",
+    "vinyl-source-stream": "1.1.0"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2",
+    "favicon": "0.0.2",
+    "mkdirp": "0.5.1",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "request": "2.81.0"
+  }
+}

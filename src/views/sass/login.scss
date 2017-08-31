@@ -1,0 +1,36 @@
+.bg {
+	background: linear-gradient(lighten($main-color, 5%), darken($main-color, 15%));
+	height: calc(100% - 32px) !important;
+}
+
+.login {
+	background: darken($main-color, 5%);
+	box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.75);
+	padding: 30px;
+	width: 33%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	
+	img {
+		margin: 0 auto;
+		margin-bottom: 30px;
+		width: 50%;
+		display: block;
+	}
+	label, input {
+		font-size: 20px;
+	}
+	button {
+		box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+		font-size: 18px;
+		padding: 5px 20px;
+		border-bottom: 3px solid darken(#fff, 10%);
+		margin: 0 auto;
+		display: block;
+	}
+	input {
+		margin: 10px 0;
+	}
+}
