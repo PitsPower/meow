@@ -72,25 +72,37 @@ var Folder = React.createClass({
 	}
 });
 
-var TextEditor = React.createClass({
-	displayName: 'TextEditor',
+var EditorContent = React.createClass({
+	displayName: 'EditorContent',
 	
 	getInitialState: function() {
 		return {};	
 	},
 	
-	componentDidMount: function() {
-		var editor = ace.edit('ace');
+	componentWillReceiveProps: function(props) {
+		this.setState({
+			image: null
+		});
 		
-		editor.setTheme('ace/theme/monokai');
-		editor.getSession().setMode('ace/mode/html');
-		
-		editor.setReadOnly(!this.props.text);
-		if (this.props.text) editor.setValue(this.props.text, -1);
-		
-		this.componentDidUpdate = this.componentDidMount;
-		
-		this.state.editor = editor;
+		if (props.needsEditor) {
+			var editor = ace.edit('ace');
+
+			editor.setTheme('ace/theme/monokai');
+			editor.getSession().setMode('ace/mode/'+props.type);
+
+			editor.setReadOnly(!props.text);
+			if (props.text) editor.setValue(props.text, -1);
+
+			this.state.editor = editor;
+		} else {
+			var imageTypes = ["jpg", "png", "gif", "svg", "ico"];
+			
+			if (imageTypes.indexOf(props.type)>-1) {
+				this.setState({
+					image: "https://"+window.User.name+".neocities.org"+props.directory
+				});
+			}
+		}
 	},
 	
 	save: function() {
@@ -107,13 +119,22 @@ var TextEditor = React.createClass({
 	render: function() {
 		return (
 			<div className="editor">
-				<div id="ace"></div>
-				<div className="buttons">
-					<img className="arrow" src="img/editor/arrow.svg"/>
-					<button onClick={this.save}><img src="img/editor/save.svg"/></button>
-					<button onClick={this.sync}><img src="img/editor/sync.svg"/></button>
-					<button><img src="img/editor/preview.svg"/></button>
-				</div>
+				<div id="ace" style={{display: this.props.needsEditor?"block":"none"}}></div>
+				{
+					this.state.image &&
+					<div className="image">
+						<img src={this.state.image}/>
+					</div>
+				}
+				{
+					this.props.needsEditor &&
+					<div className="buttons">
+						<img className="arrow" src="img/editor/arrow.svg"/>
+						<button onClick={this.save}><img src="img/editor/save.svg"/></button>
+						<button onClick={this.sync}><img src="img/editor/sync.svg"/></button>
+						<button><img src="img/editor/preview.svg"/></button>
+					</div>
+				}
 			</div>
 		);
 	}
@@ -131,6 +152,21 @@ module.exports = React.createClass({
 	
 	render: function() {
 		var state = this.props.parent.state;
+		
+		var unwantedTypes = [
+			"jpg", "png", "gif", "svg", "ico",
+			"eot", "ttf", "woff", "woff2", "svg",
+			"mid", "midi"
+		];
+		
+		var needsEditor = false;
+		var type;
+		
+		if (this.props.directory) {
+			var type = this.props.directory.split(".")[1].replace("js","javascript");
+			needsEditor = unwantedTypes.indexOf(type)==-1;
+		}
+		
 		return (
 			<div className="ui">
 				<div className="filetree sidebar column">
@@ -144,7 +180,7 @@ module.exports = React.createClass({
 				</div>
 
 				<div className="content column" style={{overflow: 'hidden'}}>
-					<TextEditor text={this.props.text} directory={this.props.directory}/>
+					<EditorContent text={this.props.text} directory={this.props.directory} type={type} needsEditor={needsEditor}/>
 				</div>
 			</div>
 		);

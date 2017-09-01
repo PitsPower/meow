@@ -13,7 +13,7 @@ app.on('ready', function() {
 	mainWindow.setMenu(null);
 	mainWindow.maximize();
 	
-//	BrowserWindow.addDevToolsExtension('ext/react');
+	BrowserWindow.addDevToolsExtension('ext/react');
 	mainWindow.openDevTools();
 });
 
