@@ -141,11 +141,16 @@ function parseComment($,$this,user) {
 		var comment = {
 			type: 'update',
 			id: $this.find('.actions').attr('id').replace('event_','').replace('_actions',''),
-			user: $this.find('.title .text a').attr('href').replace('/site/',''),
 			content: [],
 			likes: getLikeValue($this.find('#like').text()),
 			liked: $this.find('#like').text().indexOf('Unlike')>-1
 		};
+		
+		if ($this.find('.title .text').text().indexOf('You')>-1) {
+			comment.user = user.name;
+		} else {
+			comment.user = $this.find('.title .text a').attr('href').replace('/site/','');
+		}
 		
 		comment.allowEdit = comment.user==user.name;
 
