@@ -61,4 +61,9 @@ button {
 		border: none;
 		width: 100%;
 	}
+	&.side button {
+		float: right;
+		height: 100%;
+		transform: translateY(-100%);
+	}
 }

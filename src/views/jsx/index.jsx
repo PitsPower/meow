@@ -73,12 +73,12 @@ var App = React.createClass({
 			tabs: [
 				{
 					name: 'Editor',
-					selected: true,
+					selected: false,
 					content: <Editor/>
 				},
 				{
 					name: 'Comments',
-					selected: false,
+					selected: true,
 					content: <Comments/>
 				},
 				{

@@ -246,7 +246,7 @@ var Comment = React.createClass({
 				{
 					this.state.editing
 					?
-					<div className="form" style={{margin: "10px 0"}}>
+					<div className="form side" style={{margin: "10px 0"}}>
 						<input ref="editText" type="text" defaultValue={this.state.content} maxLength="420"/>
 						<button onClick={this.submitEdit}>Submit</button>
 					</div>
@@ -344,7 +344,7 @@ var PostForm = React.createClass({
 	
 	render: function() {
 		return (
-			<div className="post-box form">
+			<div className="post-box form side">
 				<input ref="content" type="text" maxLength="420"/>
 				<button onClick={this.submit}>Post</button>
 			</div>
